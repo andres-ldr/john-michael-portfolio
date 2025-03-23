@@ -1,0 +1,15 @@
+---
+import IconEmail from '~/assets/icons/email.svg';
+import { email } from '~/data/config';
+---
+
+<a
+  href={email.href}
+  class='not-prose flex items-center gap-x-3 hover:-translate-y-1 hover:-rotate-1 transition duration-300'
+>
+  <IconEmail class='bg-brand-red rounded-full p-2.5 size-12 text-white' />
+  <div>
+    <p class='text-base/4'>Email</p>
+    <span class='text-brand-green font-bold text-base/6'>{email.label}</span>
+  </div>
+</a>
