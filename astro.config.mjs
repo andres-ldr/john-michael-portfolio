@@ -11,25 +11,15 @@ import playformInline from '@playform/inline';
 
 const SERVER_PORT = 4321;
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
-const LIVE_URL = `https://github.com/andres-ldr`;
 
-const SCRIPT = process.env.npm_lifecycle_script || '';
-const isBuild = SCRIPT.includes('astro build');
-let SITE_URL = LOCALHOST_URL;
-let BASE = '/';
-
-if (isBuild) {
-  SITE_URL = LIVE_URL;
-  BASE = '/john-michael-portfolio.git';
-}
-
-//     ? 'https://github.com/andres-ldr/john-michael-portfolio.git'
+const isProd = process.env.NODE_ENV === 'production';
 
 // https://astro.build/config
 export default defineConfig({
-  server: { port: SERVER_PORT },
-  site: SITE_URL,
-  base: BASE,
+  site: isProd
+    ? 'https://github.com/andres-ldr/john-michael-portfolio.git'
+    : LOCALHOST_URL,
+  base: isProd ? '/john-michael-portfolio' : '/',
   // trailingSlash: 'always',
   integrations: [
     tailwind(),
