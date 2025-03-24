@@ -9,10 +9,16 @@ import mdx from '@astrojs/mdx';
 
 import playformInline from '@playform/inline';
 
+const LOCALHOST_URL = `http://localhost:${4321}`;
+
+const LIVE_URL = `https://github.com/andres-ldr/john-michael-portfolio`;
+
+// const SCRIPT = process.env.
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://github.com/andres-ldr/john-michael-portfolio.git',
-  //   base: '/',
+  base: '/john-michael-portfolio',
   // trailingSlash: 'always',
   integrations: [
     tailwind(),
